@@ -11,15 +11,16 @@ import utils
 
 
 class Weapon:
-	"""
-	Une arme dans le jeu.
+	def __init__(self, __name, power, min_level):
+		self.__name = __name
+		self.power = power
+		self.min_level = min_level
 
-	:param name: Le nom de l'arme
-	:param power: Le niveau d'attaque
-	:param min_level: Le niveau minimal pour l'utiliser
-	"""
+	def make_unarmed(self):
+		self.Weapon = ("Unarmed", 20, 0)
 
-	UNARMED_POWER = 20
+
+
 
 
 class Character:
@@ -32,8 +33,16 @@ class Character:
 	:param defense: Le niveau de défense du personnage
 	:param level: Le niveau d'expérience du personnage
 	"""
-
-
+	def __init__(self, __name, max_hp, attack, defense, level, weapon, hp):
+		self.__name = __name
+		self.max_hp = max_hp
+		self.attack = attack
+		self.defense = defense
+		self.level = level
+		self.hp = hp
+		self.weapon = Weapon
+		if self.weapon == None:
+			self.weapon = Weapon.make_unarmed()
 
 def deal_damage(attacker, defender):
 	# TODO: Calculer dégâts
