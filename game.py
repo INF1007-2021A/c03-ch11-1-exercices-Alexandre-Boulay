@@ -41,9 +41,18 @@ class Character:
 		self.level = level
 		self.hp = hp
 		self.weapon = Weapon
+
 		if self.weapon == None:
 			self.weapon = Weapon.make_unarmed()
 
+		def compute_damage():
+			chance = random.randint(1,100):
+			if chance <= 6.25:
+				crit = 2
+			else:
+				crit = 1
+			modifier = crit * random.uniform(0.85, 1)
+			((((((2 * level) / 5) + 2) * Weapon.power * attack / defense) / 50) + 2) * modifier
 def deal_damage(attacker, defender):
 	# TODO: Calculer dégâts
 	print(f"{attacker.name} used {attacker.weapon.name}")
